@@ -1,0 +1,38 @@
+/***
+Program to find the frequency of characters in a string in O(n) time complexity.
+Input: kiit
+Output: k – 1
+i – 2
+t – 1
+****/
+#include <bits/stdc++.h>
+using namespace std;
+
+void printString(string s)
+{
+    int fre[26];
+    memset(fre,0,sizeof(fre));
+    int n=s.size();
+    
+    for(int i=0;i<n;i++)
+    {
+        fre[s[i]-'a']++;
+    }
+    
+    for(int i=0;i<n;i++)
+    {
+        if(fre[s[i]-'a']!=0)
+        {
+            cout<<s[i]<<"-"<<fre[s[i]-'a']<<endl;
+            fre[s[i]-'a']=0;
+        }
+    }
+}
+
+int main()
+{
+   string s;
+   cin>>s;
+   printString(s);
+   return 0;
+}
