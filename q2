@@ -1,0 +1,45 @@
+/*****
+Program to check if two strings are anagrams or not. Two strings are given as
+input and those strings have to be checked if they are anagrams or not.
+Anagram means that both strings contain the same character set, only their
+order is different. Therefore, in both strings, the frequency of each letter must be
+the same. For example, strings "act" and "cat" are anagrams.
+*****/
+
+#include <stdio.h>
+
+void pass(char *s1,char *s2)
+{
+	int i;
+	int dp1[256]={0};
+	int dp2[256]={0};
+	int test=1;
+
+	for(i=0;s1[i]&&s2[i];i++)
+	{
+		dp1[s1[i]]++;
+		dp2[s2[i]]++;
+	}
+
+	if (s1[i] || s2[i]) //lengths are of different length
+        test=0; 
+  
+    // Compare count arrays 
+    for (i = 0; i < 256; i++) 
+        if (dp1[i] != dp2[i]) 
+            test=0;; 
+  
+    if(test>0)
+     printf("anagram\n\n");
+
+ 	else
+ 		printf("not anagram\n");
+}
+
+int main()
+{
+    char s1[]={"cat"};
+    char s2[]={"act"};
+    pass(s1,s2);
+    return 0;
+}
